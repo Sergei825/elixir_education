@@ -3,6 +3,8 @@
 Модуль позволяет проводить операции с 2 числами: сложение, вычитание, умножение, деление
 написаны тесты и немного документации
 
+ДЗ 3:
+![Рабочий день](https://github.com/user-attachments/assets/f06939eb-ced0-485f-a797-7905c30bb454)
 
 # Education
 
@@ -22,3 +24,4 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+
