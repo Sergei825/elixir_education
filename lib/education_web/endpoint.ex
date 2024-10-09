@@ -6,7 +6,7 @@ defmodule EducationWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_education_key",
+    key: "mysecretcookie",
     signing_salt: "ssOR6Cp1",
     same_site: "Lax"
   ]

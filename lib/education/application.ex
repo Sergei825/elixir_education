@@ -23,6 +23,9 @@ defmodule Education.Application do
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Education.Supervisor]
+    IO.puts "======================================== HERE ========================================================"
+    IO.puts "NODE #{node()}======================================================="
+    IO.puts "COOKIE #{Node.get_cookie()}======================================================="
     Supervisor.start_link(children, opts)
   end
 

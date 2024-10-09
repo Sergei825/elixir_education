@@ -1,16 +1,40 @@
 version: '3'
 services:
-  web:
+  app1:
     build: .
-    command: mix phx.server  
+    # command: mix phx.server && iex --sname n2@ed --cookie _education_key -S mix
+    # command: iex --name n1@ed -S mix phx.server
+    command: elixir --name app1@ed --cookie mysecretcookie -S mix phx.server
+    # command: mix phx.server
     volumes:
       - .:/home/app
     ports:
       - "4000:4000"
     links:
       - db
+      - app2
     depends_on:
       - db
+      - app2
+    environment: 
+      NAME: app1
+    hostname: app1
+
+  app2:
+    build: .
+    # command:  mix phx.server && iex --sname n2@ed --cookie _education_key -S mix
+    command: elixir --name app2@ed --cookie mysecretcookie -S mix phx.server
+    # command: mix phx.server
+    volumes:
+      - .:/home/app
+    ports:
+      - "4001:4000"
+    links:
+      - db
+    depends_on:
+      - db
+    environment: 
+      NAME: app2
 
   # test:
   #   image: education_web
