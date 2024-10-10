@@ -4,7 +4,8 @@
 написаны тесты и немного документации
 
 ДЗ 3:
-![Рабочий день](https://github.com/user-attachments/assets/f06939eb-ced0-485f-a797-7905c30bb454)
+![Рабочий день 2](https://github.com/user-attachments/assets/79e05c3d-446e-4fff-89fe-45a210c74f98)
+
 
 # Education
 
