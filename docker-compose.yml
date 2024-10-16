@@ -4,8 +4,8 @@ services:
     build: .
     # command: mix phx.server && iex --sname n2@ed --cookie _education_key -S mix
     # command: iex --name n1@ed -S mix phx.server
-    command: elixir --name app1@ed --cookie mysecretcookie -S mix phx.server
-    # command: mix phx.server
+    # command: elixir --name app1@ed --cookie mysecretcookie -S mix phx.server
+    command: mix phx.server
     volumes:
       - .:/home/app
     ports:

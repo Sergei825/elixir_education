@@ -17,6 +17,7 @@ defmodule EducationWeb.Router do
   scope "/", EducationWeb do
     pipe_through :browser
 
+    resources "/posts", PostController
     get "/", PageController, :home
   end
 
