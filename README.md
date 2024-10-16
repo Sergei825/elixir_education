@@ -6,6 +6,9 @@
 ДЗ 3:
 ![Рабочий день 2](https://github.com/user-attachments/assets/79e05c3d-446e-4fff-89fe-45a210c74f98)
 
+ДЗ 4:
+![конечный автомат](https://github.com/user-attachments/assets/ed9e4ba3-0170-450e-bdde-8b0a4cd0f101)
+
 
 # Education
 
