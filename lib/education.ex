@@ -2,6 +2,11 @@ defmodule Education do
   @moduledoc """
     module for education purposes
   """
+  alias Education.Repo
+  alias Education.Comment
+  alias Education.User
+
+  import Ecto.Query
 
   @doc """
     Calculate operations with 2 params
@@ -47,4 +52,36 @@ defmodule Education do
     {:ok, a * b}
   end
 
+  @doc """
+  Creates a comment
+  """
+  def create_comment(attrs \\ %{}) do
+    %Comment{}
+    |> Comment.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Creates a user
+  """
+  def create_user(attrs \\ %{}) do
+    %User{}
+    |> User.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Delete a user
+  """
+  def delete_user(%User{} = user) do
+    post_ids_query = from c in Comment,
+      where: c.user_id == ^user.id,
+      select: c.post_id
+
+    posts_to_delete = from p in Education.Blog.Post,
+      where: p.id in subquery(post_ids_query)
+
+    Repo.delete_all(posts_to_delete)
+    Repo.delete(user)
+  end
 end
