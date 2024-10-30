@@ -4,8 +4,6 @@ defmodule Education.Comment do
 
   schema "comments" do
     field :text, :string
-    # field :user_id, :integer
-    # field :post_id, :integer
     belongs_to :user, Education.User
     belongs_to :post, Education.Blog.Post
     timestamps(type: :utc_datetime)

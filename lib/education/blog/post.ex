@@ -6,6 +6,8 @@ defmodule Education.Blog.Post do
     field :title, :string
     field :body, :string
 
+    many_to_many :users, Education.User, join_through: Education.Comment, on_delete: :delete_all, on_replace: :delete
+
     timestamps(type: :utc_datetime)
   end
 

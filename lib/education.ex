@@ -6,7 +6,7 @@ defmodule Education do
   alias Education.Comment
   alias Education.User
 
-  import Ecto.Query
+  # import Ecto.Query
 
   @doc """
     Calculate operations with 2 params
@@ -68,20 +68,5 @@ defmodule Education do
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()
-  end
-
-  @doc """
-  Delete a user
-  """
-  def delete_user(%User{} = user) do
-    post_ids_query = from c in Comment,
-      where: c.user_id == ^user.id,
-      select: c.post_id
-
-    posts_to_delete = from p in Education.Blog.Post,
-      where: p.id in subquery(post_ids_query)
-
-    Repo.delete_all(posts_to_delete)
-    Repo.delete(user)
   end
 end
