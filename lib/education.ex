@@ -2,6 +2,11 @@ defmodule Education do
   @moduledoc """
     module for education purposes
   """
+  alias Education.Repo
+  alias Education.Comment
+  alias Education.User
+
+  # import Ecto.Query
 
   @doc """
     Calculate operations with 2 params
@@ -47,4 +52,21 @@ defmodule Education do
     {:ok, a * b}
   end
 
+  @doc """
+  Creates a comment
+  """
+  def create_comment(attrs \\ %{}) do
+    %Comment{}
+    |> Comment.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Creates a user
+  """
+  def create_user(attrs \\ %{}) do
+    %User{}
+    |> User.changeset(attrs)
+    |> Repo.insert()
+  end
 end
