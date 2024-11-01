@@ -2,9 +2,11 @@ defmodule Education do
   @moduledoc """
     module for education purposes
   """
-  alias Education.Repo
-  alias Education.Comment
-  alias Education.User
+  alias Education.{Repo, Comment, User}
+
+  defmodule CalcRequest do
+    defstruct operation: "sum", param1: 27, param2: 3
+  end
 
   # import Ecto.Query
 
@@ -44,6 +46,16 @@ defmodule Education do
     end
   end
 
+  @doc """
+    Calculate operations with 2 params
+
+    iex> Education.calc(%Education.CalcRequest{})
+    { :ok, 30 }
+  """
+  def calc(%CalcRequest{}) do
+    apply(Education, :calc, list_it(%CalcRequest{}))
+  end
+
   defp sum(a, b) do
     {:ok, a + b}
   end
@@ -68,5 +80,9 @@ defmodule Education do
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()
+  end
+
+  def list_it(input) do
+    Lister.list_it(input)
   end
 end
