@@ -1,4 +1,7 @@
 defmodule Education.Blog.Post do
+  @moduledoc """
+    model for testing many-to-many assoc
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

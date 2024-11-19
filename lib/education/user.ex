@@ -1,4 +1,8 @@
 defmodule Education.User do
+  @moduledoc """
+    user model for test many_to_many association
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 

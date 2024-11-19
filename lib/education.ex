@@ -5,11 +5,11 @@ defmodule Education do
   alias Education.{Repo, Comment, User}
 
   defmodule CalcRequest do
+    @moduledoc false
     defstruct operation: "sum", param1: 27, param2: 3
   end
 
-  # import Ecto.Query
-
+  @spec calc(String.t(), integer(), integer() | %CalcRequest{}) :: {:ok, integer() | String.t()}
   @doc """
     Calculate operations with 2 params
 
@@ -34,13 +34,13 @@ defmodule Education do
   def calc(operation, num1, num2) do
     case operation do
       "sum" ->
-        sum(num1, num2)
+        {:ok, sum(num1, num2)}
       "multiplication" ->
-        multiplication(num1, num2)
+        {:ok, multiplication(num1, num2)}
       "subtraction" ->
-        sum(num1, -num2)
+        {:ok, sum(num1, -num2)}
       "division" ->
-        multiplication(num1, 1/num2)
+        {:ok, multiplication(num1, 1 / num2)}
       _ ->
         {:error, "no valid operation: #{operation}"}
     end
@@ -57,13 +57,14 @@ defmodule Education do
   end
 
   defp sum(a, b) do
-    {:ok, a + b}
+    a + b
   end
 
   defp multiplication(a, b) do
-    {:ok, a * b}
+    a * b
   end
 
+  @spec create_comment(any()) :: {:ok, %Comment{} | Ecto.Changeset.t()}
   @doc """
   Creates a comment
   """
@@ -73,6 +74,7 @@ defmodule Education do
     |> Repo.insert()
   end
 
+  @spec create_user(any()) :: {:ok, %User{} | Ecto.Changeset.t()}
   @doc """
   Creates a user
   """

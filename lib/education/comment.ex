@@ -1,4 +1,7 @@
 defmodule Education.Comment do
+  @moduledoc """
+    model for testing many-to-many
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

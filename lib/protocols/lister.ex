@@ -17,7 +17,7 @@ end
 
 defimpl Lister, for: List do
   def list_it(value) do
-    [ "why?" | value ]
+    ["why?" | value]
   end
 end
 
