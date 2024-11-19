@@ -9,6 +9,9 @@
 ДЗ 4:
 ![конечный автомат](https://github.com/user-attachments/assets/ed9e4ba3-0170-450e-bdde-8b0a4cd0f101)
 
+ДЗ 8:
+![дз8_машинное_обучение](https://github.com/user-attachments/assets/012e8eaa-f59e-49e9-9830-de9c2d695739)
+
 
 # Education
 
