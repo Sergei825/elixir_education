@@ -5,11 +5,17 @@ defmodule Education do
   alias Education.{Repo, Comment, User}
 
   defmodule CalcRequest do
+    @type t :: %__MODULE__{
+      operation: String.t(),
+      param1: integer(),
+      param2: integer()
+    }
+
     @moduledoc false
     defstruct operation: "sum", param1: 27, param2: 3
   end
 
-  @spec calc(String.t(), integer(), integer() | %CalcRequest{}) :: {:ok, integer() | String.t()}
+  @spec calc(String.t(), integer(), integer() | CalcRequest.t()) :: {:ok, integer() | String.t()}
   @doc """
     Calculate operations with 2 params
 
@@ -64,7 +70,7 @@ defmodule Education do
     a * b
   end
 
-  @spec create_comment(any()) :: {:ok, %Comment{} | Ecto.Changeset.t()}
+  @spec create_comment(any()) :: {:ok, Comment.t() | Ecto.Changeset.t()}
   @doc """
   Creates a comment
   """
@@ -74,7 +80,7 @@ defmodule Education do
     |> Repo.insert()
   end
 
-  @spec create_user(any()) :: {:ok, %User{} | Ecto.Changeset.t()}
+  @spec create_user(any()) :: {:ok, User.t() | Ecto.Changeset.t()}
   @doc """
   Creates a user
   """

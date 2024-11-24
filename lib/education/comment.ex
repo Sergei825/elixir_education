@@ -5,6 +5,10 @@ defmodule Education.Comment do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+    text: String.t()
+  }
+
   schema "comments" do
     field :text, :string
     belongs_to :user, Education.User

@@ -5,6 +5,11 @@ defmodule Education.Blog.Post do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{
+    title: String.t(),
+    body: String.t()
+  }
+
   schema "posts" do
     field :title, :string
     field :body, :string
