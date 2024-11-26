@@ -9,6 +9,9 @@ RUN elixir -v
 
 WORKDIR /home/app
 
+EXPOSE 4369
+EXPOSE 4370
+
 # COPY . .
 
 # RUN mix deps.get
