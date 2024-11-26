@@ -19,6 +19,10 @@
 
 ![зеленое_кредо](https://github.com/user-attachments/assets/e1decd8a-c034-40e9-a24f-240f66e95d2e)
 
+ДЗ 10:
+
+![дз10_докер](https://github.com/user-attachments/assets/d223b2e0-9fe5-4899-8a25-acc2312e1934)
+
 
 # Education
 
