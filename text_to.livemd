@@ -1,0 +1,30 @@
+# dz8 text_to_temperameter
+
+```elixir
+Mix.install([
+  {:bumblebee, "~> 0.6.0"},
+  {:nx, "~> 0.9.0"},
+  {:exla, "~> 0.9.0"},
+  {:axon, "~> 0.7.0"},
+  {:kino, "~> 0.14.0"}
+])
+
+Nx.global_default_backend(EXLA.Backend)
+```
+
+## Section
+
+```elixir
+{:ok, bertweet} = Bumblebee.load_model({:hf, "finiteautomata/bertweet-base-sentiment-analysis"})
+{:ok, tokenizer} = Bumblebee.load_tokenizer({:hf, "vinai/bertweet-base"})
+
+serving = Bumblebee.Text.text_classification(bertweet, tokenizer)
+
+text_input = Kino.Input.text("Text", default: "This cat is so cute.")
+
+Kino.render(text_input)
+text = Kino.Input.read(text_input)
+
+
+Nx.Serving.run(serving, text)
+```
