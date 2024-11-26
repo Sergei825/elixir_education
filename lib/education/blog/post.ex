@@ -1,6 +1,14 @@
 defmodule Education.Blog.Post do
+  @moduledoc """
+    model for testing many-to-many assoc
+  """
   use Ecto.Schema
   import Ecto.Changeset
+
+  @type t :: %__MODULE__{
+    title: String.t(),
+    body: String.t()
+  }
 
   schema "posts" do
     field :title, :string

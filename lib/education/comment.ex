@@ -1,6 +1,13 @@
 defmodule Education.Comment do
+  @moduledoc """
+    model for testing many-to-many
+  """
   use Ecto.Schema
   import Ecto.Changeset
+
+  @type t :: %__MODULE__{
+    text: String.t()
+  }
 
   schema "comments" do
     field :text, :string

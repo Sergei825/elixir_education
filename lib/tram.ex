@@ -19,11 +19,13 @@ defmodule Tram do
     GenServer.start_link(__MODULE__, initial_state, name: __MODULE__)
   end
 
+  @spec legal_transition?(atom(), atom()) :: true | false
   def legal_transition?(current_state, new_state) do
-    paths = %{depo: [:move],move: [:depo, :stop],stop: [:move, :open_doors],open_doors: [:stop]}
+    paths = %{depo: [:move], move: [:depo, :stop], stop: [:move, :open_doors], open_doors: [:stop]}
     new_state in paths[current_state]
   end
 
+  @spec change_state(atom()) :: any()
   def change_state(new_state) do
     current_state = current()
     if legal_transition?(current_state, new_state) do
@@ -33,6 +35,7 @@ defmodule Tram do
     end
   end
 
+  @spec current :: atom()
   # check state
   def current, do: GenServer.call(__MODULE__, :current)
 

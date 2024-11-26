@@ -1,6 +1,16 @@
 defmodule Education.User do
+  @moduledoc """
+    user model for test many_to_many association
+  """
   use Ecto.Schema
   import Ecto.Changeset
+
+  @type t :: %__MODULE__{
+    name: String.t(),
+    email: String.t(),
+    bio: String.t(),
+    number_of_pets: integer()
+  }
 
   schema "users" do
     field :name, :string
